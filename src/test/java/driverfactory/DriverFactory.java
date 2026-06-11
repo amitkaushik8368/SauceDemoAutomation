@@ -7,10 +7,10 @@ import org.openqa.selenium.edge.EdgeDriver;
 
 public class DriverFactory
 {
-    private WebDriver driver;
+    private static WebDriver driver;
 
 
-    public void initializeDriver()        // Sets the driver
+    public static void initializeDriver()        // Sets the driver
     {
         String browser = LoadConfiguration.getProperty("browser");
         if (browser == null)
@@ -23,7 +23,7 @@ public class DriverFactory
             throw new IllegalStateException("Unsupported Browser : " + browser);
     }
 
-    public WebDriver getDriver()
+    public static WebDriver getDriver()
     {
         if (driver == null)
             throw new IllegalStateException("No webdriver session is active");
@@ -31,7 +31,7 @@ public class DriverFactory
             return driver;
     }
 
-    public void tearDown()
+    public static void tearDown()
     {
         if (driver != null) {
             driver.quit();
