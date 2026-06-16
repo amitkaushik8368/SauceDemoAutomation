@@ -12,7 +12,6 @@ public class FrameworkHooks
     void createBrowser()
     {
         DriverFactory.initializeDriver();
-
         DriverFactory.getDriver().manage().window().maximize();
         DriverFactory.getDriver().get(LoadConfiguration.getProperty("url"));
     }
