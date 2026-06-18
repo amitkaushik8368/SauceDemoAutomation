@@ -21,9 +21,7 @@ public class LoginPage
         enterPassword(password);
         clickLoginButton();
         return new ProductsPage(driver);
-
     }
-
     private void enterUsername(String username)
     {
         driver.findElement(usernameField).sendKeys(username);
@@ -32,15 +30,17 @@ public class LoginPage
     {
         driver.findElement(passwordField).sendKeys(password);
     }
-
     private void clickLoginButton()
     {
         driver.findElement(loginButton).click();
     }
-
     public String getErrorMessage()
     {
         return driver.findElement(failedLoginMessage).getText();
+    }
+
+    public boolean isLoginPageDisplayed(){
+        return driver.findElement(usernameField).isDisplayed();
     }
 
 
