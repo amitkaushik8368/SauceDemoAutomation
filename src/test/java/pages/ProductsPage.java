@@ -11,8 +11,8 @@ public class ProductsPage
         this.driver = driver;
     }
     private final By productTitleField = By.xpath("//span[@class = 'title']");
-    public String getProductTitle()
+    public boolean isProductTitleDisplayed()
     {
-        return  driver.findElement(productTitleField).getText();
+        return  driver.findElement(productTitleField).isDisplayed();
     }
 }

@@ -34,9 +34,9 @@ public class LoginPage
     {
         driver.findElement(loginButton).click();
     }
-    public String getErrorMessage()
+    public boolean isErrorMessageDisplayed()
     {
-        return driver.findElement(failedLoginMessage).getText();
+        return driver.findElement(failedLoginMessage).isDisplayed();
     }
 
     public boolean isLoginPageDisplayed(){
