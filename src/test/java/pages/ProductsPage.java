@@ -11,6 +11,24 @@ public class ProductsPage
         this.driver = driver;
     }
     private final By productTitleField = By.xpath("//span[@class = 'title']");
+    private final By addBackpackToCartField = By.xpath("//button[contains(@id, 'backpack')]");
+    private final By addBikeLightToCart = By.xpath("//button[contains(@id, 'bike-light')]");
+    private final By shoppingCartField = By.id("shopping_cart_container");
+
+    public void addBackpackToCart()
+    {
+        driver.findElement(addBackpackToCartField).click();
+    }
+    public void addBikeLightToCart()
+    {
+        driver.findElement(addBikeLightToCart).click();
+    }
+    public CartPage clickShoppingCart()
+    {
+        driver.findElement(shoppingCartField).click();
+        return new CartPage(driver);
+    }
+
     public boolean isProductTitleDisplayed()
     {
         return  driver.findElement(productTitleField).isDisplayed();
