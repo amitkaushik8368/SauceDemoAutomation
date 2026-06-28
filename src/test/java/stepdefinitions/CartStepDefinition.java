@@ -1,30 +1,36 @@
 package stepdefinitions;
 
-import driverfactory.DriverFactory;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pages.LoginPage;
-import pages.ProductsPage;
+import org.junit.jupiter.api.Assertions;
 
 public class CartStepDefinition
 {
+    private final ScenarioContext scenarioContext;
+
+    public CartStepDefinition(ScenarioContext scenarioContext)
+    {
+        this.scenarioContext = scenarioContext;
+    }
 
     @When("user adds {string} to cart")
     public void user_adds_to_cart(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        Assertions.assertTrue(scenarioContext.getProductsPage().isProductTitleDisplayed(), "Products page not found");
+        if (string.toLowerCase().contains("backpack"))
+        {
+            scenarioContext.getProductsPage().addBackpackToCart();
+        }
+
     }
 
     @When("user navigates to cart")
     public void user_navigates_to_cart() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        scenarioContext.setCartPage(scenarioContext.getProductsPage().clickShoppingCart());
     }
 
     @Then("product should be visible in cart")
     public void product_should_be_visible_in_cart() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        Assertions.assertTrue(scenarioContext.getCartPage().cartPageTitleDisplayed(), "Cart Page is not Loaded");
+        Assertions.assertTrue(scenarioContext.getCartPage().isItemVisibleInCart(), "SauceLab Back Pack is not added to the cart");
     }
 }
