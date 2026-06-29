@@ -1,4 +1,4 @@
-package stepdefinitions;
+package context;
 
 import pages.CartPage;
 import pages.LoginPage;

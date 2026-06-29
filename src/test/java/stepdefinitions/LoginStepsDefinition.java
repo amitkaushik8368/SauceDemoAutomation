@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import context.ScenarioContext;
 import driverfactory.DriverFactory;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

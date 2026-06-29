@@ -15,6 +15,17 @@ public class ProductsPage
     private final By addBikeLightToCart = By.xpath("//button[contains(@id, 'bike-light')]");
     private final By shoppingCartField = By.id("shopping_cart_container");
 
+    public boolean isProductTitleDisplayed()
+    {
+        return  driver.findElement(productTitleField).isDisplayed();
+    }
+
+    public void addProductToCart(String product)
+    {
+
+    }
+
+
     public void addBackpackToCart()
     {
         driver.findElement(addBackpackToCartField).click();
@@ -29,8 +40,5 @@ public class ProductsPage
         return new CartPage(driver);
     }
 
-    public boolean isProductTitleDisplayed()
-    {
-        return  driver.findElement(productTitleField).isDisplayed();
-    }
+
 }
