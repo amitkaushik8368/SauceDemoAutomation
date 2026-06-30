@@ -15,13 +15,9 @@ public class CartStepDefinition
     }
 
     @When("user adds {string} to cart")
-    public void user_adds_to_cart(String string) {
+    public void user_adds_to_cart(String productName) {
         Assertions.assertTrue(scenarioContext.getProductsPage().isProductTitleDisplayed(), "Products page not found");
-        if (string.toLowerCase().contains("backpack"))
-        {
-            scenarioContext.getProductsPage().addBackpackToCart();
-        }
-
+        scenarioContext.getProductsPage().addProductToCart(productName);
     }
 
     @When("user navigates to cart")
