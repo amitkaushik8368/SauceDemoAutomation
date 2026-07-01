@@ -25,9 +25,9 @@ public class CartStepDefinition
         scenarioContext.setCartPage(scenarioContext.getProductsPage().clickShoppingCart());
     }
 
-    @Then("product should be visible in cart")
-    public void product_should_be_visible_in_cart() {
+    @Then("{string} should be visible in cart")
+    public void product_should_be_visible_in_cart(String productName) {
         Assertions.assertTrue(scenarioContext.getCartPage().cartPageTitleDisplayed(), "Cart Page is not Loaded");
-        Assertions.assertTrue(scenarioContext.getCartPage().isItemVisibleInCart(), "SauceLab Back Pack is not added to the cart");
+        Assertions.assertTrue(scenarioContext.getCartPage().isItemVisibleInCart(productName), "SauceLab Back Pack is not added to the cart");
     }
 }

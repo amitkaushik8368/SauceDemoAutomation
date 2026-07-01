@@ -15,7 +15,7 @@ public class FrameworkHooks
 
     }
     @After
-    public void closeBrowser()    {
+    public void closeBrowser() throws InterruptedException {
         System.out.println("Inside @After");
         DriverFactory.tearDown();
     }

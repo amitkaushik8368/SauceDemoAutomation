@@ -31,9 +31,9 @@ public class DriverFactory
             return driver;
     }
 
-    public static void tearDown()
-    {
+    public static void tearDown() throws InterruptedException {
         if (driver != null) {
+            Thread.sleep(2000);
             driver.quit();
             driver=null;
         }
