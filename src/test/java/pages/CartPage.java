@@ -11,8 +11,8 @@ public class CartPage
         this.driver = driver;
     }
     private final By cartPageTitleField = By.xpath("//span[text() = 'Your Cart']");
-    private static final String ITEM_VISIBLE_IN_CART = "//div[@class = 'cart_list']/descendant::div[text() = '%s']";
     private final By checkoutField = By.id("checkout");
+    private static final String ITEM_VISIBLE_IN_CART = "//div[@class = 'cart_list']/descendant::div[text() = '%s']";
     public boolean cartPageTitleDisplayed()
     {
         return driver.findElement(cartPageTitleField).isDisplayed();
@@ -21,6 +21,12 @@ public class CartPage
     {
         By dynamicProductLocatorInCart = By.xpath(String.format(ITEM_VISIBLE_IN_CART, productName));
         return driver.findElement(dynamicProductLocatorInCart).isDisplayed();
+    }
+
+    public CheckoutPage clickCheckout()
+    {
+        driver.findElement(checkoutField).click();
+        return new CheckoutPage(driver);
     }
 
 }

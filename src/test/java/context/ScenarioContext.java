@@ -1,6 +1,7 @@
 package context;
 
 import pages.CartPage;
+import pages.CheckoutPage;
 import pages.LoginPage;
 import pages.ProductsPage;
 
@@ -9,6 +10,7 @@ public class ScenarioContext
     private LoginPage loginPage;
     private ProductsPage productsPage;
     private CartPage cartPage;
+    private CheckoutPage checkoutPage;
 
     public void setLoginPage(LoginPage loginPage)
     {
@@ -26,7 +28,6 @@ public class ScenarioContext
     {
         return productsPage;
     }
-
     public void setCartPage(CartPage cartPage)
     {
         this.cartPage = cartPage;
@@ -36,6 +37,13 @@ public class ScenarioContext
     {
         return this.cartPage;
     }
-
+    public void setCheckoutPage(CheckoutPage checkoutPage)
+    {
+        this.checkoutPage = checkoutPage;
+    }
+    public CheckoutPage getCheckoutPage()
+    {
+        return this.checkoutPage;
+    }
 
 }
