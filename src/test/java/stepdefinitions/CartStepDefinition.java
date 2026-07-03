@@ -30,4 +30,10 @@ public class CartStepDefinition
         Assertions.assertTrue(scenarioContext.getCartPage().cartPageTitleDisplayed(), "Cart Page is not Loaded");
         Assertions.assertTrue(scenarioContext.getCartPage().isItemVisibleInCart(productName), "SauceLab Back Pack is not added to the cart");
     }
+
+    @When("user clicks on checkout")
+    public void user_clicks_on_checkout() {
+        scenarioContext.getCartPage().clickCheckout();
+    }
+
 }
