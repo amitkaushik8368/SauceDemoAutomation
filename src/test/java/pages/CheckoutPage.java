@@ -15,15 +15,39 @@ public class CheckoutPage
     private final By firstNameField = By.id("first-name");
     private final By lastNameField = By.id("last-name");
     private final By postalCodeField = By.id("postal-code");
-    private final By continueToCheckout2Field = By.id("continue");
+    private final By continueToCheckoutOverviewField = By.id("continue");
     private final By backToCartField = By.id("cancel");
-
-
-
 
     public boolean isCheckoutTitleDisplayed()
     {
         return driver.findElement(checkoutTitleField).isDisplayed();
+    }
+
+    public void enterFirstName(String firstName)
+    {
+        driver.findElement(firstNameField).sendKeys(firstName);
+    }
+
+    public void enterLastName(String lastName)
+    {
+        driver.findElement(lastNameField).sendKeys(lastName);
+    }
+
+    public void enterPostalCode(String postalCode)
+    {
+        driver.findElement(postalCodeField).sendKeys(postalCode);
+    }
+
+    public CheckoutOverviewPage continueToCheckoutOverview()
+    {
+        driver.findElement(continueToCheckoutOverviewField).click();
+        return new CheckoutOverviewPage(driver);
+    }
+
+    public CartPage goBackToCart()
+    {
+        driver.findElement(backToCartField).click();
+        return new CartPage(driver);
     }
 
 

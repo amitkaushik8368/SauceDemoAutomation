@@ -7,7 +7,10 @@ Feature: Checkout
     And user navigates to cart
     And user clicks on checkout
 
+    Scenario: Validate user can remove products from Cart
+      When
+
     Scenario: Validate user is able to navigate  to checkout page
       When user navigates to checkout page
       And user enters first name "Amit" and last name "Sharma" and postal code "121004"
-      Then user should see all the details in checkout overview
+      Then user should be navigated to checkout overview
