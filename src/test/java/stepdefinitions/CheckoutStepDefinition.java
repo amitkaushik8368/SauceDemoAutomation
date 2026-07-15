@@ -27,13 +27,28 @@ public class CheckoutStepDefinition
         scenarioContext.getCheckoutPage().enterFirstName(firstname);
         scenarioContext.getCheckoutPage().enterLastName(lastname);
         scenarioContext.getCheckoutPage().enterPostalCode(postalCode);
+        scenarioContext.setCheckoutOverviewPage(scenarioContext.getCheckoutPage().continueToCheckoutOverview());
     }
 
     @Then("user should be navigated to checkout overview")
-
     public void user_should_be_navigated_to_checkout_overview() {
-        scenarioContext.setCheckoutOverviewPage(scenarioContext.getCheckoutPage().continueToCheckoutOverview());;
         Assertions.assertTrue(scenarioContext.getCheckoutOverviewPage().isCheckoutOverviewTitleDisplayed(), "Checkout Overview Page is not loaded");
+    }
+
+    @Then("{string} should be visible in checkout overview")
+    public void should_be_visible_in_checkout_overview(String product) {
+        Assertions.assertTrue(scenarioContext.getCheckoutOverviewPage().isProductVisible(product));
+    }
+
+    @When("user navigates to Checkout complete")
+    public void user_navigates_to_checkout_complete() {
+        scenarioContext.getCheckoutOverviewPage().clickFinishButton();
+    }
+
+    @Then("user should see the message {string}")
+    public void user_should_see_the_message(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
     }
 
 }
